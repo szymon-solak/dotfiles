@@ -45,10 +45,13 @@ return packer.startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
 	use "onsails/lspkind.nvim"
 	use "jose-elias-alvarez/null-ls.nvim"
 	use "folke/trouble.nvim"
+	use {
+	    "williamboman/mason.nvim",
+	    "williamboman/mason-lspconfig.nvim",
+	}
 
 	-- telescope
 	use "nvim-telescope/telescope.nvim"
