@@ -12,11 +12,10 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.eslint,
-		diagnostics.eslint,
-		diagnostics.jsonlint,
-		-- diagnostics.xo,
-		formatting.stylua,
 		formatting.rustfmt,
+		diagnostics.eslint,
+		diagnostics.tsc,
+		diagnostics.jsonlint,
 		diagnostics.shellcheck,
 	},
 })

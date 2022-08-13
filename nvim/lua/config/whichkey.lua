@@ -5,18 +5,9 @@ end
 
 whichkey.setup {}
 
-local opts = {
-	mode = "n",
-	prefix = "<leader>",
-	buffer = nil,
-	silent = true,
-	noremap = true,
-	nowait = true,
-}
-
 local mappings = {
-	["w"] = { "<cmd>w!<cr>", "Save" },
-	["q"] = { "<cmd>q!<cr>", "Quit" },
+	w = { "<cmd>w!<cr>", "Save" },
+	q = { "<cmd>q!<cr>", "Quit" },
 
 	b = {
 		name = "Buffers",
@@ -42,33 +33,19 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
+		F = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format", mode = "v" },
+		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature help" },
+
+		d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
+		w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
 	},
 
 	o = {
@@ -97,4 +74,23 @@ local mappings = {
 	},
 }
 
-whichkey.register(mappings, opts)
+local no_prefix_mappings = {
+	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover details" },
+}
+
+whichkey.register(mappings, {
+	mode = "n",
+	prefix = "<leader>",
+	buffer = nil,
+	silent = true,
+	noremap = true,
+	nowait = true,
+})
+
+whichkey.register(no_prefix_mappings, {
+	mode = "n",
+	buffer = nil,
+	silent = true,
+	noremap = true,
+	nowait = true,
+})

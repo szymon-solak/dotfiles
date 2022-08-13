@@ -3,27 +3,31 @@ if not status_ok then
 	return
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
+-- TODO: Migrate to mason.nvim as lsp-installer is no longer maintained
+
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = require("config.lsp.handlers").on_attach,
 		capabilities = require("config.lsp.handlers").capabilities,
 	}
 
-	--[[
-	 if server.name == "jsonls" then
-	 	local jsonls_opts = require("config.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	 end
-	 --]]
+	local server_config_path = "config.lsp.settings." .. server.name
 
-	if server.name == "sumneko_lua" then
-		local sumneko_opts = require("config.lsp.settings.sumneko_lua")
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	local settings_exist, server_settings = pcall(require, server_config_path)
+
+	if settings_exist then
+		local old_on_attach = opts.on_attach
+
+		opts = vim.tbl_deep_extend("force", server_settings, opts)
+
+		opts.on_attach = function (client, bufnr)
+			old_on_attach(client, bufnr)
+
+			if type(server_settings.on_attach) == 'function' then
+				server_settings.on_attach(client, bufnr)
+			end
+		end
 	end
 
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	server:setup(opts)
 end)
