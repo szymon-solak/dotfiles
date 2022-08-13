@@ -15,13 +15,13 @@ local opts = {
 }
 
 local mappings = {
-	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["w"] = { "<cmd>w!<cr>", "Save" },
+	["q"] = { "<cmd>q!<cr>", "Quit" },
 
 	b = {
 		name = "Buffers",
-		b = { "<cmd>Telescope buffers<CR>", "Switch to buffer" },
-		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		b = { "<cmd>Telescope buffers<cr>", "Switch to buffer" },
+		c = { "<cmd>Bdelete!<cr>", "Close Buffer" },
 	},
 
 	s = {
@@ -54,7 +54,7 @@ local mappings = {
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
 			"Next Diagnostic",
 		},
 		k = {
@@ -73,14 +73,15 @@ local mappings = {
 
 	o = {
 		name = "Open",
-		p = { "<cmd>NvimTreeToggle<CR>", "Browse Files" },
+		p = { "<cmd>NvimTreeToggle<cr>", "Browse Files" },
+		f = { "<cmd>NvimTreeFindFile<cr>", "Find current file" }
 		-- p = { "<cmd>Telescope file_browser path=%:p:h<CR>", "Browse Files" },
 	},
 
 	p = {
 		name = "Project",
-		p = { "<cmd>Telescope project<CR>", "Projects" },
-		f = { "<cmd>Telescope find_files<CR>", "Find File" },
+		p = { "<cmd>Telescope project<cr>", "Projects" },
+		f = { "<cmd>Telescope find_files<cr>", "Find File" },
 	},
 
 	t = {
