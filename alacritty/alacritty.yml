@@ -16,24 +16,21 @@ scrolling:
 
 font:
   normal:
-    # family: "JuliaMono"
-    family: SFMono Nerd Font
+    family: VictorMono Nerd Font
     style: Regular
 
   bold:
-    # family: "JuliaMono"
-    family: SFMono Nerd Font
+    family: VictorMono Nerd Font
     style: Bold
 
   italic:
-    # family: "JuliaMono"
-    family: SFMono Nerd Font
+    family: VictorMono Nerd Font
     style: Italic
 
   size: 16
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
 
   glyph_offset:
     x: 0

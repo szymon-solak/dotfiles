@@ -23,15 +23,14 @@
     pkgs.fd
     pkgs.coreutils
     pkgs.gcc
-    pkgs.jetbrains-mono
-    pkgs.noto-fonts
-    pkgs.iosevka-bin
-    pkgs.julia-mono
     pkgs.nixfmt
     pkgs.fontconfig
     pkgs.editorconfig-core-c
     pkgs.shellcheck
     pkgs.pandoc
+
+    # Fonts
+    pkgs.nerdfonts
 
     # Image utils
     pkgs.graphviz
