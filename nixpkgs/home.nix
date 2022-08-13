@@ -13,31 +13,13 @@
     pkgs.lsd
     pkgs.bat
     pkgs.ripgrep
-    # pkgs.timewarrior
     pkgs.tmux
     pkgs.neovim
     pkgs.fzf
     pkgs.diff-so-fancy
-    # pkgs.brave
     pkgs.awscli2
-    pkgs.graphviz
-    pkgs.pngquant
-    pkgs.optipng
     pkgs.rustup
-    pkgs.libiconv
-
-    # Containers
-    pkgs.lazydocker
-
-    # asdf
-    pkgs.gnupg
-    pkgs.asdf-vm
-
-    # Emacs
-    # pkgs.emacs
-    #pkgs.emacs28NativeComp
-    #pkgs.emacs-all-the-icons-fonts
-
+    pkgs.python3
     pkgs.fd
     pkgs.coreutils
     pkgs.gcc
@@ -51,8 +33,19 @@
     pkgs.shellcheck
     pkgs.pandoc
 
-    # Others
-    # pkgs.platformio
+    # Image utils
+    pkgs.graphviz
+    pkgs.pngquant
+    pkgs.optipng
+    pkgs.libiconv
+    pkgs.imagemagick
+
+    # Containers
+    pkgs.lazydocker
+
+    # asdf
+    pkgs.gnupg
+    pkgs.asdf-vm
   ];
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -85,7 +78,6 @@
     initExtra = ''
       export PATH=$HOME/bin:/usr/local/bin:$PATH
       export PATH=$HOME/.local/bin:$PATH
-      export PATH=$HOME/.emacs.d/bin:$PATH
       export PATH=$HOME/.asdf/shims:$PATH
     '';
 
@@ -98,8 +90,8 @@
         src = fetchFromGitHub {
           owner = "wfxr";
           repo = "forgit";
-          rev = "b727321f2bd3d79c1dae805441261c45888cbb41";
-          sha256 = "sha256-jbrn8cIHQFmceofCVA1TjRPQL5hRdGFgxLfeIZE6Z7k=";
+          rev = "f6040b21a0db895d0e0ec110fecdc72274a20417";
+          sha256 = "sha256-zyDp8tswi+6WuHgJkSIz1OE6s314qycK1975vk8FbMM=";
         };
         file = "forgit.plugin.zsh";
       }
@@ -108,8 +100,8 @@
         src = fetchFromGitHub {
           owner = "agkozak";
           repo = "zsh-z";
-          rev = "b30bc6050e77abe30ce36761d18ed696e5410f16";
-          sha256 = "sha256-TSX6KooWYGf1NDlD4A3o6CmSsyy1JL7bPeKsuCOuUhY=";
+          rev = "aaafebcd97424c570ee247e2aeb3da30444299cd";
+          sha256 = "sha256-9Wr4uZLk2CvINJilg4o72x0NEAl043lP30D3YnHk+ZA=";
         };
         file = "zsh-z.plugin.zsh";
       }
@@ -118,8 +110,8 @@
         src = fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "90dc9cf908481cc155e1ce5611f684916523fc30";
-          sha256 = "sha256-nsmiP1RSG27WtwRJpTZvDi2CvUQExxdBs5my7T5TSKk=";
+          rev = "2d89ef1d06f76997790b45df5ac447f0c3ffd34c";
+          sha256 = "sha256-KO1z5/9vRh4JNNawbUhy9Zgr3ywGfpSEMx/4N0V+vmw=";
         };
         file = "pure.plugin.zsh";
       }
@@ -128,8 +120,8 @@
         src = fetchFromGitHub {
           owner = "zsh-users";
           repo = "zsh-syntax-highlighting";
-          rev = "c7caf57ca805abd54f11f756fda6395dd4187f8a";
-          sha256 = "sha256-MeuPqDeJpbJi2hT7VUgyQNSmDPY/biUncvyY78IBfzM=";
+          rev = "caa749d030d22168445c4cb97befd406d2828db0";
+          sha256 = "sha256-YV9lpJ0X2vN9uIdroDWEize+cp9HoKegS3sZiSpNk50=";
         };
         file = "zsh-syntax-highlighting.plugin.zsh";
       }
