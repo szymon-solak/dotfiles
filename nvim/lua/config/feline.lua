@@ -3,13 +3,17 @@ if not status_ok then
 	return
 end
 
+-- TODO: Move setup and colors to theme file
 local config = require("tokyonight.config")
 local colors = require("tokyonight.colors").setup(config)
+local util = require("tokyonight.util")
+local colorscheme = require('config.colorscheme')
 
 local theme = {
-	fg = colors.fg,
-	bg = colors.bg_statusline,
+	fg = colorscheme.should_use_light_mode and util.light_colors(colors.fg) or colors.fg,
+	bg = colorscheme.should_use_light_mode and util.light_colors(colors.bg_statusline) or colors.bg_statusline,
 }
+--
 
 local lsp = require "feline.providers.lsp"
 local lsp_severity = vim.diagnostic.severity
