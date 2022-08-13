@@ -49,8 +49,8 @@ return packer.startup(function(use)
 	use "jose-elias-alvarez/null-ls.nvim"
 	use "folke/trouble.nvim"
 	use {
-	    "williamboman/mason.nvim",
-	    "williamboman/mason-lspconfig.nvim",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 	}
 
 	-- telescope

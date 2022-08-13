@@ -75,6 +75,9 @@ local mappings = {
 
 local no_prefix_mappings = {
 	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover details" },
+	gD = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
+	gd = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
+	gi = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to implementation" },
 }
 
 whichkey.register(mappings, {
