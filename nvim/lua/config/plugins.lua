@@ -32,6 +32,7 @@ return packer.startup(function(use)
 	use "folke/which-key.nvim"
 	use "editorconfig/editorconfig-vim"
 	use "kyazdani42/nvim-tree.lua"
+	use "machakann/vim-sandwich"
 
 	-- completion
 	use "hrsh7th/cmp-nvim-lsp"

@@ -3,6 +3,14 @@ if not status_ok then
 	return
 end
 
+local org = {}
+
+org.paths = {
+	todo = '~/projects/notebook/todo.org',
+	workTodo = '~/projects/notebook/work-todo.org',
+	learningLog = "~/projects/notebook/learning-log.org",
+}
+
 orgmode.setup {
 	org_default_notes_file = '~/projects/notebook/scratch.org',
 	org_capture_templates = {
@@ -27,3 +35,5 @@ orgmode.setup {
 }
 
 orgmode.setup_ts_grammar()
+
+return org

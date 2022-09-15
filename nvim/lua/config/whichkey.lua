@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local org = require('config.org')
+
 whichkey.setup {}
 
 local mappings = {
@@ -66,12 +68,17 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
-
-	n = {
-		name = "Notes"
-		-- c = {  }
-	},
 }
+
+if org ~= nil then
+	mappings['n'] = {
+		name = "Notes",
+		-- TODO: Probably need to be escaped
+		t = { "<cmd>e " .. org.paths.todo .. "<cr>" },
+		w = { "<cmd>e " .. org.paths.workTodo .. "<cr>" },
+		l = { "<cmd>e " .. org.paths.learningLog .. "<cr>" },
+	}
+end
 
 local no_prefix_mappings = {
 	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover details" },
@@ -96,3 +103,4 @@ whichkey.register(no_prefix_mappings, {
 	noremap = true,
 	nowait = true,
 })
+
