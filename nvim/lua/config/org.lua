@@ -16,6 +16,12 @@ orgmode.setup {
 			description = 'Work Todo',
 			template = '* TODO %?\n %u',
 			target = '~/projects/notebook/work-todo.org',
+		},
+		l = "Log",
+		ll = {
+			description = "Learning Log",
+			template = '* [[%?link][description]] %u',
+			target = "~/projects/notebook/learning-log.org"
 		}
 	}
 }

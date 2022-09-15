@@ -10,14 +10,17 @@ local util = require("tokyonight.util")
 local colorscheme = require('config.colorscheme')
 
 local theme = {
-	fg = colorscheme.should_use_light_mode and util.light_colors(colors.fg) or colors.fg,
-	bg = colorscheme.should_use_light_mode and util.light_colors(colors.bg_statusline) or colors.bg_statusline,
+	fg = colors.fg,
+	bg = colors.bg_statusline,
 }
---
+
+if colorscheme.should_use_light_mode then
+	util.invert_colors(theme)
+end
 
 local lsp = require "feline.providers.lsp"
 local lsp_severity = vim.diagnostic.severity
-local vi_mode_utils = require "feline.providers.vi_mode"
+-- local vi_mode_utils = require "feline.providers.vi_mode"
 
 local diagnostic = {
 	error = {
@@ -62,12 +65,22 @@ local diagnostic = {
 	},
 }
 
+local function get_lsp_clients()
+	local client_names = {}
+
+	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+		table.insert(client_names, client.name)
+	end
+
+	return table.concat(client_names, ', ')
+end
+
 local lsp_icon = {
 	provider = function()
 		if next(vim.lsp.buf_get_clients()) ~= nil then
-			local lsp_name = vim.lsp.get_active_clients()[1].name
+			local lsp_clients = get_lsp_clients()
 
-			return "   LSP ~ " .. lsp_name .. " "
+			return "   LSP ~ " .. lsp_clients .. " "
 		else
 			return ""
 		end
