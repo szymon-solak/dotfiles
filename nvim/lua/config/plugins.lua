@@ -20,7 +20,6 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/popup.nvim"
 	use "nvim-lua/plenary.nvim"
-	use "folke/tokyonight.nvim"
 	use "windwp/nvim-autopairs"
 	use "numToStr/Comment.nvim"
 	use "folke/zen-mode.nvim"
@@ -33,6 +32,10 @@ return packer.startup(function(use)
 	use "editorconfig/editorconfig-vim"
 	use "kyazdani42/nvim-tree.lua"
 	use "machakann/vim-sandwich"
+
+	-- theme
+	use "folke/tokyonight.nvim"
+	use "catppuccin/nvim"
 
 	-- completion
 	use "hrsh7th/cmp-nvim-lsp"

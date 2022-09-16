@@ -8,6 +8,7 @@
 
   home.packages = [
     # General
+    pkgs.niv
     pkgs.git
     pkgs.alacritty
     pkgs.lsd
@@ -27,6 +28,7 @@
     pkgs.fontconfig
     pkgs.editorconfig-core-c
     pkgs.shellcheck
+    pkgs.ffmpeg
     # pkgs.pandoc
 
     # Fonts
