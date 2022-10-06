@@ -1,0 +1,16 @@
+(defpoll is-bluetooth-pairable :interval "10s" "scripts/is_bluetooth_pairable.sh")
+(defpoll is-bluetooth-connected :interval "10s" "scripts/is_bluetooth_connected.sh")
+
+; TODO: Menu on-click with device list
+;   revealer ref: https://github.com/rxyhn/bspdots/blob/main/config/eww/bar/eww.yuck
+;   close on click outside ref: https://github.com/elkowar/eww/issues/472#issuecomment-1146860335
+
+(defwidget bluetooth []
+  (box :class "bluetooth" 
+    (box :class "bluetooth-icon"
+      {is-bluetooth-pairable
+        ? is-bluetooth-connected
+          ? ""
+          : ""
+        : ""
+      })))

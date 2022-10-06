@@ -1,0 +1,4 @@
+(defpoll focused-window-title :interval "1s" "scripts/get_focused_window.sh")
+
+(defwidget focused-window []
+  (box {focused-window-title}))
