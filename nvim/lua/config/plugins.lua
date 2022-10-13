@@ -17,9 +17,12 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
+	-- base
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/popup.nvim"
 	use "nvim-lua/plenary.nvim"
+
+	-- general
 	use "windwp/nvim-autopairs"
 	use "numToStr/Comment.nvim"
 	use "folke/zen-mode.nvim"
@@ -32,6 +35,13 @@ return packer.startup(function(use)
 	use "editorconfig/editorconfig-vim"
 	use "kyazdani42/nvim-tree.lua"
 	use "machakann/vim-sandwich"
+	use {
+		"ggandor/leap.nvim",
+		requires = {{ "tpope/vim-repeat" }},
+		config = function ()
+			require('leap').set_default_keymaps()
+		end
+	}
 
 	-- theme
 	use "folke/tokyonight.nvim"
@@ -71,7 +81,7 @@ return packer.startup(function(use)
 	}
 	use "JoosepAlviste/nvim-ts-context-commentstring"
 
-	-- Git
+	-- git
 	use "lewis6991/gitsigns.nvim"
 	use "TimUntersberger/neogit"
 
