@@ -6,7 +6,6 @@
 
   home.packages = [
     # General
-    pkgs.niv
     pkgs.git
     pkgs.alacritty
     pkgs.lsd
@@ -15,7 +14,8 @@
     pkgs.tmux
     pkgs.neovim
     pkgs.fzf
-    pkgs.diff-so-fancy
+    # pkgs.diff-so-fancy
+		pkgs.difftastic
     pkgs.awscli2
     pkgs.rustup
     pkgs.python3
