@@ -1,8 +1,11 @@
 daemonize
 
-image=~/.config/swaylock/bg.jpg
-effect-greyscale
+color=00000000
+screenshots
+effect-blur=5x3
 font=Iosevka Term SS08
 clock
+indicator
 show-keyboard-layout
 indicator-caps-lock
+grace=15

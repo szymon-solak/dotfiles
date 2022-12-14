@@ -1,0 +1,24 @@
+.bluetooth-icon {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.bluetooth-menu {
+	background: $crust;
+	border-radius: 8px;
+	border: 1px solid $overlay0;
+}
+
+.bluetooth-device {
+	padding: 1em;
+}
+
+.bluetooth-device-name {
+}
+
+.bluetooth-device-name-connected {
+}
+
+.bluetooth-device-status {
+	color: $overlay0;
+}

@@ -1,0 +1,24 @@
+.bar-layout {
+	background-color: $base;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@mixin ws-base {
+	border: 1px solid $rosewater;
+	border-radius: 50%;
+	font-size: 1.2rem;
+	padding-left: 0.6rem;
+	padding-right: 0.6rem;
+	margin-top: 0.7rem;
+	margin-bottom: 0.7rem;
+}
+
+.bar-layout .ws {
+	@include ws-base;
+}
+
+.bar-layout .ws-focused {
+	@include ws-base;
+	background-color: $flamingo;
+}

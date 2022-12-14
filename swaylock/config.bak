@@ -1,0 +1,8 @@
+daemonize
+
+image=~/.config/swaylock/bg.jpg
+effect-greyscale
+font=Iosevka Term SS08
+clock
+show-keyboard-layout
+indicator-caps-lock

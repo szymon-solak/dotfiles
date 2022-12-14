@@ -6,8 +6,9 @@ set $up k
 set $right l
 set $term alacritty
 set $menu rofi -show drun -run-command 'swaymsg exec -- {cmd}'
-set $background "~/Pictures/wallpaper.jpg"
+set $background "/home/yoshuro/Pictures/wallpapers/"
 set $screenshot flameshot gui
+set $lock "~/.config/bin/lock.sh"
 
 # Borders & Gaps
 default_border pixel 1
@@ -19,26 +20,34 @@ gaps inner 10
 gaps top 40
 
 # Autostart
-exec mako --outer-margin=40,0,0,0
+exec mako --outer-margin="40,0,0,0"
 exec wl-paste -t text --watch clipman store --no-persist
 exec eww daemon
-exec eww open bar
+exec_always eww open bar
 exec swayidle -w
 exec gammastep-indicator
 exec nm-applet --indicator
 exec blueman-applet
 # exec "sh -c 'sleep 15; exec blueman-applet'"
-exec systemctl --user --import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>dev/null && \
-  dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec systemctl --user --import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec hash dbus-update-activation-environment 2>dev/null && \
+  # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec_always killall mpvpaper && mpvpaper "*" $background -o "no-audio --loop-playlist --geometry=3440x1440 --no-keepaspect" --auto-pause
+exec_always autotiling
+  
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, sticky enable
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ### Output configuration
-output "*" background $background fill
+# output "*" background $background fill
 output "*" adaptive_sync on
 
 input "3141:34067:SONiX_USB_DEVICE" {
    repeat_rate 40
    repeat_delay 150
+   xkb_layout pl,us
+   xkb_options grp:rctrl_toggle
 }
 
 # Hack while working with eww widgets
@@ -68,7 +77,7 @@ bindsym $mod+Shift+w exec "eww close-all"
     bindsym $mod+Shift+c reload
 
     # Lock screen
-    bindsym $mod+g exec swaylock
+    bindsym $mod+g exec $lock
 
     # Screenshot
     bindsym Print exec $screenshot

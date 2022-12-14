@@ -1,0 +1,12 @@
+(defpoll workspaces :interval "1s" "scripts/get_workspaces.sh")
+
+(defwidget workspaces []
+  (box 
+    :class "workspaces"
+    :orientation "h"
+    :space-evenly false
+    :spacing 5
+    (for workspace in workspaces
+      (button 
+        :class {workspace.focused ? "ws-focused" : "ws"}))))
+
