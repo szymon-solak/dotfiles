@@ -35,7 +35,7 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
 		F = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format", mode = "v" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },

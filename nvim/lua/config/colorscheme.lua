@@ -15,7 +15,12 @@ else
 	vim.g.catppuccin_flavour = 'frappe'
 end
 
-catppuccin.setup()
+catppuccin.setup {
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+}
 
 vim.cmd [[colorscheme catppuccin]]
 
