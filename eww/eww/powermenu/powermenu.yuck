@@ -1,0 +1,51 @@
+(defwindow powermenu
+	:monitor 0
+	:stacking "overlay"
+	:focusable true
+	:geometry (geometry
+			:width "100%"
+			:height "100%")
+	(powermenu_layout))
+
+(defwidget powermenu_layout []
+	(box
+            :class "powermenu-layout"
+            :space-evenly false
+            :orientation "vertical"
+        (box
+            :class "buttons"
+            :space-evenly false
+            :valign "start"
+            :halign "end"
+            (button :class "destructive-button" :onclick "eww close powermenu" ""))
+        (box
+          :space-evenly false
+          :vexpand true
+          :valign "start"
+          :halign "center"
+          (clock))
+        (box 
+            :valign "start" 
+            :space-evenly false
+            (session-buttons))))
+
+(defwidget session-buttons []
+	(box
+           :class "buttons"
+           :vexpand true
+           :hexpand true
+           :valign "end"
+           :halign "end"
+           :space-evenly false
+          (button :class "destructive-button" :onclick "poweroff" "")
+          (button :onclick "loginctl kill-session self" "")
+          (button :onclick "reboot" "")))
+
+; TODO: Make this a shared widget
+(defpoll hour :interval "1s" "date +%H")
+(defpoll minute :interval "1s" "date +%M")
+
+(defwidget clock []
+  (box
+    :class "clock"
+    (label :text "${hour}:${minute}")))

@@ -1,0 +1,55 @@
+.powermenu-layout {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 2rem;
+	padding-bottom: 5rem;
+	background-image: url('./assets/bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.powermenu-layout button {
+	font-size: 3rem;
+	color: $text;
+}
+
+.buttons {
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.buttons button {
+	background-color: $mantle;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
+	&:first-child {
+		border-top-left-radius: 1rem;
+		border-bottom-left-radius: 1rem;
+	}
+
+	&:last-child {
+		border-top-right-radius: 1rem;
+		border-bottom-right-radius: 1rem;
+	}
+}
+
+.buttons button:hover {
+	background-color: $crust;	
+}
+
+.powermenu-layout .destructive-button {
+	color: $red;
+}
+
+.powermenu-layout .destructive-button:hover {
+	color: $maroon;
+}
+
+.powermenu-layout .clock {
+	font-size: 10rem;
+	font-family: Archivo Black;
+}

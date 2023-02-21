@@ -1,0 +1,28 @@
+(include "./bar/widgets/focused-window.yuck")
+(include "./bar/widgets/workspaces.yuck")
+(include "./bar/widgets/bluetooth/bluetooth.yuck")
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "100%" :height "36px" :anchor "top center")
+  :stacking "fg"
+  (box :class "bar-layout"
+    (left)
+    (center)
+    (right)))
+
+(defwidget left []
+  (box
+    :halign "start"
+    (workspaces)))
+
+(defwidget center []
+  (box
+    (focused-window)))
+
+(defwidget right []
+  (box
+    :halign "end"
+    (bluetooth)
+    (clock)))
+
