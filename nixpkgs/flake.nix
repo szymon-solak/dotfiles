@@ -11,6 +11,7 @@
 				modules = [./home.nix];
 				pkgs = import inputs.nixpkgs {
 					system = "aarch64-darwin";
+					config.allowUnfree = true;
 				};
 			};
 		};
