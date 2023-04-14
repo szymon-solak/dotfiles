@@ -54,4 +54,8 @@ mason_lspconfig.setup_handlers {
 	end,
 }
 
+-- TODO: Mason installed lua_ls doesn't work on nix
+local _, lua_settings = pcall(require, 'config.lsp.settings.lua_ls')
+lspconfig['lua_ls'].setup(lua_settings)
+
 -- TODO: Consider mason-tool-installer

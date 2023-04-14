@@ -96,7 +96,7 @@ telescope.setup {
 		},
 		project = {
 			base_dirs = {
-				'~/Projects'
+				'~/projects'
 			}
 		}
 		-- Your extension configuration goes here:

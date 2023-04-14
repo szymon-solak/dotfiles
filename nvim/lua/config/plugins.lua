@@ -27,9 +27,9 @@ return packer.startup(function(use)
 	use "numToStr/Comment.nvim"
 	use "folke/zen-mode.nvim"
 	use "akinsho/toggleterm.nvim"
+	use "nvim-lualine/lualine.nvim"
 	use "goolord/alpha-nvim"
 	use "kyazdani42/nvim-web-devicons"
-	use "feline-nvim/feline.nvim"
 	use "folke/which-key.nvim"
 	use "editorconfig/editorconfig-vim"
 	use "kyazdani42/nvim-tree.lua"
@@ -84,7 +84,7 @@ return packer.startup(function(use)
 
 	-- git
 	use "lewis6991/gitsigns.nvim"
-	use "TimUntersberger/neogit"
+	use "tpope/vim-fugitive"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
