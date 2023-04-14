@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-local org = require('config.org')
-
 whichkey.setup {}
 
 local mappings = {
@@ -15,6 +13,15 @@ local mappings = {
 		name = "Buffers",
 		b = { "<cmd>Telescope buffers<cr>", "Switch to buffer" },
 		c = { "<cmd>Bdelete!<cr>", "Close Buffer" },
+		s = { function ()
+			vim.cmd([[
+				split
+				noswapfile hide enew
+				setlocal buftype=nofile
+				setlocal bufhidden=hide
+				file scratch
+			]])
+		end, "Open Scratch Buffer" },
 	},
 
 	s = {
@@ -49,6 +56,18 @@ local mappings = {
 		i = { "<cmd>Mason<cr>", "LSP Info" },
 	},
 
+	d = {
+		name = "Debug",
+		b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
+		h = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+		j = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
+		k = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
+		l = { "<cmd>lua require('dap').step_out()<cr>", "Step out" },
+		i = { "<cmd>lua require('dap.ui.widgets').hover()<cr>" },
+		p = { "<cmd>lua require('dap.ui.widgets').preview()<cr>" },
+		r = { "<cmd>lua require('dap').repl.open({}, 'vsplit')<cr>", "Repl" },
+	},
+
 	o = {
 		name = "Open",
 		p = { "<cmd>NvimTreeToggle<cr>", "Browse Files" },
@@ -69,16 +88,6 @@ local mappings = {
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 }
-
-if org ~= nil then
-	mappings['n'] = {
-		name = "Notes",
-		-- TODO: Probably need to be escaped
-		t = { "<cmd>e " .. org.paths.todo .. "<cr>" },
-		w = { "<cmd>e " .. org.paths.workTodo .. "<cr>" },
-		l = { "<cmd>e " .. org.paths.learningLog .. "<cr>" },
-	}
-end
 
 local no_prefix_mappings = {
 	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover details" },

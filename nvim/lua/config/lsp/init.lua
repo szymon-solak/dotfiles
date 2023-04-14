@@ -4,3 +4,4 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 require("config.lsp.mason")
 require("config.lsp.null-ls")
 require("config.lsp.handlers")
+require("config.lsp.dap")

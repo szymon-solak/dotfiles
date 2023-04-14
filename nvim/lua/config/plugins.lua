@@ -30,7 +30,6 @@ return packer.startup(function(use)
 	use "goolord/alpha-nvim"
 	use "kyazdani42/nvim-web-devicons"
 	use "feline-nvim/feline.nvim"
-	use "nvim-orgmode/orgmode"
 	use "folke/which-key.nvim"
 	use "editorconfig/editorconfig-vim"
 	use "kyazdani42/nvim-tree.lua"
@@ -66,6 +65,7 @@ return packer.startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	}
+	use 'mfussenegger/nvim-dap'
 
 	-- telescope
 	use "nvim-telescope/telescope.nvim"
@@ -80,6 +80,7 @@ return packer.startup(function(use)
 		run = ":TSUpdate"
 	}
 	use "JoosepAlviste/nvim-ts-context-commentstring"
+	use 'nvim-treesitter/nvim-treesitter-context'
 
 	-- git
 	use "lewis6991/gitsigns.nvim"

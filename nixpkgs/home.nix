@@ -60,9 +60,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+	disabledModules = [ "targets/darwin/linkapps.nix" ];
+
   imports = [
     ./modules/tmux.nix
     ./modules/zsh.nix
     ./modules/fzf.nix
+		./modules/darwin-application-activation.nix
   ];
 }

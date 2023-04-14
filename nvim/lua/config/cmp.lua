@@ -36,8 +36,6 @@ cmp.setup({
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
 	}, {
-		{ name = 'orgmode' },
-	}, {
 		{ name = 'buffer' },
 	}),
 	formatting = {
